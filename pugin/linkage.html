@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			select{
+				display: inline-block;
+				width: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<select id="provice">
+		</select>
+		<select id="city">
+		</select>
+		<select id="area">
+		</select>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script>
+			
+			var arr = [
+				{
+					"txt":"北京",
+					"children":[
+						{
+							"txt":"北京市",
+							"children":["朝阳区","通州区","房山区"]
+						},
+						{
+							"txt":"北京郊区",
+							"children":["十里河","七环外"]
+						}
+					]
+				},
+				{
+					"txt":"上海",
+					"children":[
+						{
+							"txt":"上海市",
+							"children":["普陀区","徐汇区","静安区"]
+						},
+						{
+							"txt":"上海郊区",
+							"children":["崇明岛","金山区"]
+						}
+					]
+				},
+				{
+					"txt":"广州",
+					"children":[
+						{
+							"txt":"深圳市",
+							"children":["1区","2区","3区"]
+						},
+						{
+							"txt":"厦门市",
+							"children":["鼓浪屿","千岛湖"]
+						}
+					]
+				}
+			]
+			var idx=0;
+			var idx1=0;
+			var $ele=$('#provice');
+			var $ele1=$('#city');
+			var $ele2=$('#area');
+			//渲染select
+			function render($ele,arr){
+				$ele.empty();
+				for(var i in arr){
+					if(arr[i].children){
+						var $opt=$('<option value="'+i+'">'+arr[i].txt+'</option>');
+					}
+					else{
+						var $opt=$('<option value="'+i+'">'+arr[i]+'</option>')
+					}
+					$ele.append($opt);
+				}
+			}
+			render($ele,arr);
+			render($ele1,arr[0].children);
+			render($ele2,arr[0].children[0].children);
+			$ele.change(function(){
+				idx=parseInt($(this).val());
+				render($ele1,arr[idx].children);
+				$ele1.trigger('change');
+			})
+			$ele1.change(function(){
+				idx1=parseInt($(this).val());
+				render($ele2,arr[idx].children[idx1].children);
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.time{
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="time">
+			<span id="day"></span>天
+			<span id="hour"></span>时
+			<span id="fen"></span>分
+			<span id="sec"></span>秒
+			<span id="ms"></span>
+		</div>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script>
+			window.onbeforeunload=function(){
+				var dat1=new Date();
+				var now=dat1.getTime();
+				try{
+					localStorage.nowdate=now.toString();
+					localStorage.dt=all.toString();
+					return true;
+				}
+				catch(err){
+					return false;
+				}
+			}
+			window.onload=function(){
+				var arr=[1,20,20];
+				var all=0;//总的秒数
+				all=(arr[0]*24*3600+arr[1]*3600+arr[2]*60)*100;
+				if(localStorage.nowdate&&localStorage.dt){
+					var dat2=new Date();
+					var now1=dat2.getTime();
+					var cz=now1-parseInt(localStorage.nowdate);
+					all=parseInt(localStorage.dt)-Math.floor(cz/10);
+				}
+				function time(){
+					setInterval(function(){
+						var d=Math.floor(all/(3600*24*100));
+						var h=Math.floor((all/(3600*100)-d*24)%24);
+						var f=Math.floor((all/6000-h*60-d*24*60)%60);
+						var s=Math.floor((all/100-f*60-h*3600-24*d*3600)%60);
+						var m=Math.floor(all%100);
+						all--;
+						$('#day').text(d);
+						$('#hour').text(h);
+						$('#fen').text(f);
+						$('#sec').text(s);
+						$('#ms').text(m);
+					},10)
+				}
+				time();
+			}
+		</script>
+	</body>
+</html>

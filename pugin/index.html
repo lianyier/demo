@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<ul class="wrap">
+				<li>
+					<img src="img/1.jpg" />
+				</li>
+				<li>
+					<img src="img/2.jpg" />
+				</li>
+				<li>
+					<img src="img/3.jpg" />
+				</li>
+			</ul>
+			<ul class="pagenation">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<span class="pre"></span>
+			<span class="next"></span>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/pugin.js"></script>
+	<script>
+		var pugin=new Swiper($('.container'),{
+			time:2000,
+			$page:$('.pagenation'),
+			$pre:$('.pre'),
+			$next:$('.next'),
+			loop:true
+		})
+	</script>
+</html>
