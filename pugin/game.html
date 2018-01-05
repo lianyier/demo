@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<link rel="stylesheet" href="css/game.css"/>
+	</head>
+	<body>
+		<div class="tk">
+			<div class="up"></div>
+			<div class="down"></div>
+		</div>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script>
+			//position()获取元素位置
+			var $tk=$('.tk');
+			var left=$tk.position().left;
+			var top1=$tk.position().top;
+			var flag=0;
+			var speed=10;
+			var zdWidth=50;//子弹的宽度
+			var half=45;
+			var w1=145;
+			var w2=150;//坦克的高度
+			document.onkeydown=function(e){
+				move(e.keyCode);
+			}
+			function move(code){
+				$tk.removeClass('tf1 tf2 tf3 tf4');
+				$('body').find('.zd').remove();
+				switch(code){
+					//左
+					case 37:
+					    left=left-speed;
+						$tk.css({'left':left});
+						$tk.addClass('tf4');
+						flag=37;
+						break;
+					//上
+					case 38:
+						top1=top1-speed;
+						$tk.css({'top':top1});
+						$tk.addClass('tf1');
+						flag=38;
+						break;
+					//右
+					case 39:
+						left=left+speed;
+						$tk.css({'left':left});
+						$tk.addClass('tf2');
+						flag=39;
+						break;
+					//下
+					case 40:
+						top1=top1+speed;
+						$tk.css({'top':top1});
+						$tk.addClass('tf3');
+						flag=40;
+						break;
+					//空格
+					case 32:
+						var $zd=$('<div class="zd"></div>');
+						if(flag==37){
+							$zd.addClass('tf4');
+							$tk.addClass('tf4');
+							$zd.css({
+								'left':left-zdWidth,
+								'top':top1+zdWidth
+							});
+						}
+						if(flag==38){
+							$zd.addClass('tf1');
+							$tk.addClass('tf1');
+							$zd.css({
+								'left':left+half,
+								'top':top1-zdWidth
+							});
+						}
+						if(flag==39){
+							$zd.addClass('tf2');
+							$tk.addClass('tf2');
+							$zd.css({
+								'left':left+w1,
+								'top':top1+zdWidth
+							});
+						}
+						if(flag==40){
+							$zd.addClass('tf3');
+							$tk.addClass('tf3');
+							$zd.css({
+								'left':left+half,
+								'top':top1+w2
+							});
+						}
+						$('body').append($zd);
+						anim($zd);
+						break;
+				}
+			}
+//			function add(l,l,37){
+//				
+//			}
+			function anim($zd){
+				switch(flag){
+					case 37:
+						$zd.animate({'left':-zdWidth},'swing');
+					case 38:
+						$zd.animate({'top':-zdWidth},'swing');
+					case 39:
+						$zd.animate({'left':$('body').outerWidth()+zdWidth},'swing');
+					case 40:
+						$zd.animate({'top':$('body').outerHeight()+zdWidth},'swing');
+				}
+			}
+		</script>
+	</body>
+</html>

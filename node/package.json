@@ -1,0 +1,15 @@
+{
+  "name": "cheng",
+  "version": "2.2.2",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "cl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

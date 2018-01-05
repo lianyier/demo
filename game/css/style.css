@@ -1,0 +1,48 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.box {
+  width: 500px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+}
+
+.box .start {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.box .start button {
+  background: #fafafa;
+  color: #333;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  outline: none;
+}
+
+.box .start .score {
+  padding-top: 20px;
+}
+
+.box .game {
+  width: 400px;
+  height: 700px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.box .game .block {
+  position: absolute;
+  top: 0;
+  left: 100px;
+  background: red;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>红绿灯</title>
+		<style type="text/css">
+			.light{
+				background: #000;
+				width: 350px;
+				height: 110px;
+				border-radius: 100px;
+				font-size: 0;
+				text-align: center;
+			}
+			.time{
+				width: 350px;
+				text-align: center;
+				font-size: 40px;
+				color: #333;
+				font-weight: bold;
+			}
+			span{
+				display: inline-block;
+				width: 90px;
+				height: 90px;
+				border-radius: 50%;
+				margin-top: 10px;
+				background: #ccc;
+			}
+			.tm{
+				font-style: normal;
+			}
+			.red{
+				background: red;
+			}
+			.yellow{
+				background: yellow;
+			}
+			.ct{
+				margin: 0 10px;
+			}
+			.green{
+				background: green;
+			}
+			.r{
+				color: red;
+			}
+			.y{
+				color: yellow;
+			}
+			.g{
+				color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="light">
+			<span class="red" id="lt1"></span>
+			<span class="ct" id="lt2"></span>
+			<span id="lt3"></span>
+		</div>
+		<div class="time r"><i class="tm">10</i>s</div>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script>
+			var time=0;
+			setInterval(function(){
+				$('#lt1').removeClass('red');
+				$('#lt2').removeClass('yellow');
+				$('#lt3').removeClass('green');
+				$('.time').removeClass('r');
+				$('.time').removeClass('y');
+				$('.time').removeClass('g');
+				if(time<10){
+					$('#lt1').addClass('red');
+					$('.tm').text(10-time);
+					$('.time').addClass('r');
+				}
+				if(time>=10&&time<15){
+					$('#lt2').addClass('yellow');
+					$('.tm').text(15-time);
+					$('.time').addClass('y');
+				}
+				if(time>=15&&time<25){
+					$('#lt3').addClass('green');
+					$('.tm').text(25-time);
+					$('.time').addClass('g');
+				}
+				if(time>=25){
+					time=0;
+					$('#lt1').addClass('red');
+					$('.tm').text(10-time);
+					$('.time').addClass('r');
+				}
+				time++;
+			},1000)
+			//递归实现
+//			function set(){
+//				setTimeout(function(){
+//					$('#lt1').addClass('red');
+//				},10)
+//				setTimeout(function(){
+//					$('#lt1').removeClass('red');
+//				},4000)
+//				
+//				setTimeout(function(){
+//					$('#lt2').addClass('yellow');
+//				},4000)
+//				setTimeout(function(){
+//					$('#lt2').removeClass('yellow');
+//				},7000)
+//				
+//				setTimeout(function(){
+//					$('#lt3').addClass('green');
+//				},7000)
+//				setTimeout(function(){
+//					$('#lt3').removeClass('green');
+//					set();
+//				},10000)
+//			}
+//			set();
+		</script>
+	</body>
+</html>

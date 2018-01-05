@@ -1,0 +1,218 @@
+html {font-size: 62.5%;-webkit-user-select: none;}
+body {margin:0; padding:0;font-size: 1.4rem;-webkit-user-select: none;}
+img,div,body,html,ul,li,a{ -webkit-touch-callout: none; } //Disable the popup menu when you long Press the page ( under the IOS valid ) 
+html,body,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {display: block;}
+*{
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+a{
+    text-decoration: none;
+}
+.foot-nav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #e8e8e8;
+    font-size: 0;
+    padding: 1rem 0;
+    a{
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+        font-size: 1.5rem;
+        color: #000;
+    }
+    .router-link-exact-active{
+        color: red;
+    }
+}
+.index{
+    padding: 0 0 50px;
+    .tit{
+        padding: 1.5rem 0;
+        input{
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            border-radius:5px;
+            font-size:1.4rem;
+            color: #000;
+            background:#f0f0ef;
+            padding:0.7rem 1rem;
+            border:1px solid #ccc;
+            text-align: center;
+        }
+    }
+    .show{
+        li{
+            .list{
+                padding: 0.7rem 1rem;
+                font-size: 1.4rem;
+                color: #000;
+                position: relative;
+                border-bottom:1px solid #ccc;
+            }
+            i{
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+                width: 1rem;
+                height: 1rem;
+                border-top: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                transform:rotate(45deg);
+                -webkit-transform:rotate(45deg);
+                &.down{
+                    transform:rotate(135deg);
+                    -webkit-transform:rotate(135deg);
+                }
+            }
+            dl{
+                dd{
+                   border-bottom:1px solid #ccc; 
+                   padding: 0;
+                   a{
+                       display: block;
+                       position: relative;
+                       padding: 0.7rem 2rem;
+                       font-size: 1.4rem;
+                       color: #000;
+                   }
+                }
+            }
+        }
+    }
+}
+.lists{
+    padding: 0;
+    .no-find{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    ul{
+        li{
+            border-top:1px solid #ccc;
+            font-size: 0;
+            &:last-of-type{
+                border-bottom:1px solid #ccc;
+            }
+            a{
+                display: block;
+                padding: 0.5rem 1rem;
+                display: -webkit-box;
+                display: -webkit-flex;
+                display: flex;
+                align-items:center;
+            }
+            img{
+                width: 8rem;
+                height: 8rem;
+            }
+            dl{
+                -webkit-box-flex: 1;
+                -webkit-flex: 1;
+                flex: 1;
+                padding-left: 1rem;
+                dt{
+                    span{
+                        font-size: 1.6rem;
+                    }
+                    .fr{
+                        float: right;
+                    }
+                }
+                dd{
+                    color: #333;
+                    font-size: 1.4rem;
+                    display:-webkit-box;
+                    -webkit-box-orient:vertical;
+                    -webkit-line-clamp:3;
+                    overflow:hidden;
+                    text-align:justify;
+                    word-break:break-all;
+                    padding-top: 0.5rem;
+                }
+            }
+        }
+    }
+}
+.detail{
+    padding: 0;
+    .tit-img{
+        display: block;
+        width: 100%;
+    }
+    h3{
+        font-size: 1.8rem;
+        color: #000;
+        text-align: center;
+        padding: 1rem 0 0.5rem;
+    }
+    .ms{
+        color: #666;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 1.8rem;
+        padding: 0 1rem 1rem;
+    }
+    .num{
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        padding: 0.7rem 1rem;
+        span{
+            font-size: 1.3rem;
+            color: #666;
+            &.fr{
+                float: right;
+            }
+        }
+    }
+    .miaoshu{
+        font-size: 1.3rem;
+        color: #666;
+        line-height: 1.6rem;
+        padding: 0.7rem 1rem;
+    }
+    dl{
+        dt,dd{
+            padding: 0.7rem 1rem;
+        }
+        dt{
+            border-top: 1px solid #ccc;
+            color: #000;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        dd{
+            color: #666;
+            font-size: 1.3rem;
+            border-top: 1px solid #ccc;
+            &:last-of-type{
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    }
+    .buzhu{
+        padding: 0.7rem 1rem 1rem;
+        border-bottom: 1px solid #ccc;
+        h4{
+            color: #000;
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
+        }
+        p{
+            color: #666;
+            font-size: 1.3rem;
+            line-height: 1.6rem;
+            text-align: justify;
+        }
+        img{
+            display: block;
+            width: 60%;
+            margin: 0.5rem auto 0;
+        }
+    }
+}
+

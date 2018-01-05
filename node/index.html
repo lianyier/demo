@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+			用户名<input id="user" type="text" name="user"/>
+			密码<input id="pwd" type="text" name="pwd"/>
+			<button id="sub">提交</button>
+	</body>
+	<script src="./pub/jquery-1.11.0.js"></script>
+	<script>
+		$('#sub').click(function(){
+			var txt1=$('#user').val();
+			var txt2=$('#pwd').val();
+			$.ajax({
+				type:"post",
+				url:"http://172.30.68.52:8080/",
+				success:function(d){
+					console.log(d);
+				},
+				data:{user:txt1,pwd:txt2},
+				dataType:'text'
+			});
+		})
+	</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>promise</title>
+	</head>
+	<body>
+		<script src="js/jquery-1.11.0.js"></script>
+		<script>
+//			function preLoad(path){
+//				return new Promise(function(resolve,reject){
+//					var img=new Image();
+//					img.onload=function(){
+//						resolve(img);
+//					}
+//					img.onerror=function(){
+//						reject();
+//					}
+//					img.src=path;
+//				})
+//			}
+//			var pre1=preLoad('../img/1.jpg');
+//			var pre2=preLoad('../img/2.jpg');
+//			var pre3=preLoad('../img/3.jpg');
+//			
+//			pre1.then(pre2).then(pre3).then(function(img){
+//				console.log(img)
+//			},function(e){
+//				console.log(e)
+//			})
+			var pro=new Promise(function(resolve,reject){
+				$.ajax({
+					type:"get",
+					url:"http://172.30.67.144:8080/abc",
+					success:function(d){
+						resolve(d);
+					},
+					error:function(e){
+						reject(e);
+					}
+				});
+			})
+			var pro1=function(d){
+				return new Promise(function(resolve,reject){
+					$.ajax({
+						type:"get",
+						data:{code:d},
+						url:"http://172.30.67.144:8080/abcd",
+						success:function(d){
+							resolve(d);
+						},
+						error:function(e){
+							reject(e);
+						},
+						async:true
+					});
+				})
+			}
+			pro.then(pro1).then(function(d){
+				console.log(d)
+			},function(e){
+				console.log(e)
+			})
+		</script>
+	</body>
+</html>
